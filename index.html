@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANJEEVANI - AI‑powered, confidential, and empathetic mental wellness solution. </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="/assets/The Clutcher.png" type="image/x-icon">
+    
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Main Application Container -->
+    <div id="app" class="min-h-screen transition-opacity duration-500">
+
+        <!-- Login Screen -->
+        <div id="login-screen" class="flex flex-col items-center justify-center min-h-screen bg-blue-50 p-4">
+            <div class="w-full max-w-md text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-blue-600 mb-2">SANJEEVANI</h1>
+                <p class="text-gray-600 mb-8 text-lg">Your confidential space for mental wellness.</p>
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h2 class="text-xl font-semibold text-gray-700 mb-6">Sign in to continue</h2>
+                    <div class="space-y-4">
+                        <!-- Social Login Buttons -->
+                        <button id="google-login" class="w-full flex items-center justify-center py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 transition-colors">
+                            <img src="/assets/google logo.png" class="w-5 h-5 mr-3" alt="Google Icon" onerror="this.onerror=null;this.src='https://placehold.co/20x20/EFEFEF/AAAAAA?text=G';">
+                            Sign in with Google
+                        </button>
+                        <button id="github-login" class="w-full flex items-center justify-center py-3 px-4 bg-gray-800 text-white rounded-lg shadow-sm hover:bg-gray-700 transition-colors">
+                            <img src="/assets/github logo.png" class="w-5 h-5 mr-3" alt="GitHub Icon" onerror="this.onerror=null;this.src='https://placehold.co/20x20/EFEFEF/AAAAAA?text=Git';">
+                            Sign in with GitHub
+                        </button>
+                        
+                    </div>
+                    <p class="text-xs text-gray-500 mt-6">Your privacy is our priority. We never share your personal data.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main App Content (Hidden by default) -->
+        <div id="main-content" class="hidden">
+            <header class="bg-white shadow-md p-4 flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-blue-600">Aura</h1>
+                <div class="flex items-center">
+                    <p id="user-greeting" class="mr-4 text-sm text-gray-600 hidden md:block"></p>
+                    <button id="logout-btn" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors">Logout</button>
+                </div>
+            </header>
+
+            <main class="p-4 md:p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Left Column: Mood & Chat -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Mood Tracker -->
+                    <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <h2 class="text-xl font-semibold mb-4">How are you feeling today?</h2>
+                        <div id="mood-selector" class="flex justify-around items-center">
+                            <!-- Mood buttons will be dynamically generated here -->
+                        </div>
+                        <p id="mood-confirmation" class="text-center text-green-600 font-medium mt-4 h-6"></p>
+                    </div>
+
+                    <!-- AI Chat -->
+                    <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <h2 class="text-xl font-semibold mb-4">Talk it out</h2>
+                        <p class="text-gray-500 text-sm mb-4">Share anything on your mind. Your conversation is private and secure.</p>
+                        <div id="chat-window" class="h-80 border border-gray-200 rounded-lg p-4 overflow-y-auto mb-4 flex flex-col space-y-4">
+                            <!-- Chat messages will appear here -->
+                        </div>
+                        <div id="chat-input-container" class="flex items-center">
+                            <input type="text" id="chat-input" class="flex-grow border border-gray-300 rounded-l-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Type your message...">
+                            <button id="send-btn" class="bg-blue-600 text-white px-6 py-3 rounded-r-lg hover:bg-blue-700 transition-colors">Send</button>
+                        </div>
+                         <div id="loading-indicator" class="hidden text-center mt-2">
+                            <p class="text-gray-500">Aura is thinking...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Dashboard -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <h2 class="text-xl font-semibold mb-4">Your Wellness Dashboard</h2>
+                    <p class="text-gray-500 text-sm mb-6">Visualize your mood patterns over the last 7 days.</p>
+                    <div class="h-80">
+                        <canvas id="mood-chart"></canvas>
+                    </div>
+                     <div class="mt-6">
+                        <h3 class="font-semibold text-gray-700 mb-2">Your User ID:</h3>
+                        <p id="user-id-display" class="text-xs text-gray-500 bg-gray-100 p-2 rounded break-all"></p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    
+    <script type="module" src="/index.js"></script>
+</body>
+</html>

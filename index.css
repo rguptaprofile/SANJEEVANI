@@ -1,0 +1,15 @@
+ body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chat-bubble-user {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .chat-bubble-ai {
+            background-color: #e5e7eb;
+            color: #1f2937;
+        }
+        .mood-btn.selected {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
